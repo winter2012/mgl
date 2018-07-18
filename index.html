@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <link rel=stylesheet href='./css/main.css'>
+  <link rel="shortcut icon" href=favicon.ico type=image/x-icon>
+  <title>亚盛国际</title>
+  <script>
+      !function(N,M){function L(){var a=I.getBoundingClientRect().width;a/F>1024&&(a=1024*F);var d=a/10;I.style.fontSize=d+"px",D.rem=N.rem=d}var K,J=N.document,I=J.documentElement,H=J.querySelector('meta[name="viewport"]'),G=J.querySelector('meta[name="flexible"]'),F=0,E=0,D=M.flexible||(M.flexible={});if(H){/*console.warn("将根据已有的meta标签来设置缩放比例");*/var C=H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);C&&(E=parseFloat(C[1]),F=parseInt(1/E))}else{if(G){var B=G.getAttribute("content");if(B){var A=B.match(/initial\-dpr=([\d\.]+)/),z=B.match(/maximum\-dpr=([\d\.]+)/);A&&(F=parseFloat(A[1]),E=parseFloat((1/F).toFixed(2))),z&&(F=parseFloat(z[1]),E=parseFloat((1/F).toFixed(2)))}}}if(!F&&!E){var y=N.navigator.userAgent,x=(!!y.match(/android/gi),!!y.match(/iphone/gi)),w=x&&!!y.match(/OS 9_3/),v=N.devicePixelRatio;F=x&&!w?v>=3&&(!F||F>=3)?3:v>=2&&(!F||F>=2)?2:1:1,E=1/F}if(I.setAttribute("data-dpr",F),!H){if(H=J.createElement("meta"),H.setAttribute("name","viewport"),H.setAttribute("content","initial-scale="+E+", maximum-scale="+E+", minimum-scale="+E+", user-scalable=no"),I.firstElementChild){I.firstElementChild.appendChild(H)}else{var u=J.createElement("div");u.appendChild(H),J.write(u.innerHTML)}}N.addEventListener("resize",function(){clearTimeout(K),K=setTimeout(L,300)},!1),N.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(K),K=setTimeout(L,300))},!1),"complete"===J.readyState?J.body.style.fontSize=12*F+"px":J.addEventListener("DOMContentLoaded",function(){J.body.style.fontSize=12*F+"px"},!1),L(),D.dpr=N.dpr=F,D.refreshRem=L,D.rem2px=function(d){var c=parseFloat(d)*this.rem;return"string"==typeof d&&d.match(/rem$/)&&(c+="px"),c},D.px2rem=function(d){var c=parseFloat(d)/this.rem;return"string"==typeof d&&d.match(/px$/)&&(c+="rem"),c}}(window,window.lib||(window.lib={}));
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js" charset="utf-8"></script>
+</head>
+<body>
+  <div id=app>
+      <div class="top"></div>
+      <div class="form">
+        <ul>
+          <li>
+            <p><input type="text" name="" value="" placeholder="请输入用户名" v-model='username' @blur='uesenamefocus'></p>
+          </li>
+          <li>
+            <p><input :type="showpsd" name="" value="" placeholder="请输入密码" v-model='password'></p>
+          </li>
+          <li>
+            <label for="showpassword"><input type="checkbox" class="input_check" id="showpassword" v-model='checked' @click='showpassword'><span>显示密码</span></label>
+          </li>
+          <li>
+            <label for="autologoin"><input type="checkbox" class="input_check" id="autologoin" v-model='checked2'><span>自动登录</span></label>
+          </li>
+          <li class="info"><p>{{tex}}</p></li>
+          <li>
+            <button @click="btnLogin">登录</button>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom"></div>
+      <p class="b-info">Copyright 2011-2017 亚盛国际 All Rights Reserved.</p>
+  </div>
+</body>
+</html>
+<script src=./js/index.js charset="utf-8"></script>
